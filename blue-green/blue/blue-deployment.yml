@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue
+  labels:
+    app: blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: blue  
+  template:
+    metadata:
+      labels:
+        app: blue  
+    spec:
+      containers:
+      - name: blue
+        image: sniizzer/blue-version
+        ports:
+         - name: http-server
+           containerPort: 80
