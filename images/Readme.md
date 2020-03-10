@@ -24,19 +24,22 @@
 
 ![img-6](6-Stackid.png)
 
-#### App on Browser using LoadBalancerDNSName
+#### Create kubeconfig and apply aws-iam-authenticator
 
 ![img-7](7-Createkubeconfig_applyawsauth.png)
 
-#### App on Browser using LoadBalancerDNSName
+#### Create blue, green deployments and loadbalancer service
 
 ![img-8](8-Create_deployments_and_service.png)
-#### App on Browser using LoadBalancerDNSName
+
+#### Open blue app in the browser
 
 ![img-9](9-Blue_is_live.png)
-#### App on Browser using LoadBalancerDNSName
+
+#### Update loadbalancer service to make green service live
 
 ![img-10](10-Patch_servicetogreen.png)
-#### App on Browser using LoadBalancerDNSName
+
+#### Load balancer now points to the green app
 
 ![img-11](11-Green_is_live.png)
