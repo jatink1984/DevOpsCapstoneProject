@@ -24,11 +24,14 @@ pipeline {
             }
         }
         stage('Build and Publish Docker Image'){
+                    
                     steps {
                         sh 'docker build -t sniizzer/blue-version -f blue-green/blue/Dockerfile blue-green/blue'
                         sh 'docker build -t sniizzer/green-version -f blue-green/green/Dockerfile blue-green/green'
-                        sh 'docker push sniizzer/blue-version'
-                        sh 'docker push sniizzer/green-version'
+                        docker.withRegistry('https://registry.hub.docker.com', 'docker-credentials') {
+                            sh 'docker push sniizzer/blue-version'
+                            sh 'docker push sniizzer/green-version'
+                        }
                         sh 'docker rmi -f sniizzer/blue-version'
                         sh 'docker rmi -f sniizzer/green-version'
                     }
