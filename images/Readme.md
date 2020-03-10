@@ -12,6 +12,10 @@
 
 ![img-4](4-Push_images_to_dockerhub.png)
 
+#### Images present in dockerhub
+
+![img-Images](Images_in_dockerhub.png)
+
 #### Create AWS EKS stack
 
 ![img-5](5-Create_stack.png)
