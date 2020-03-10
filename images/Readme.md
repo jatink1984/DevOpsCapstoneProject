@@ -24,6 +24,18 @@
 
 ![img-6](6-Stackid.png)
 
+#### Stack Created
+
+![img-aws](AWS_Stack.png)
+
+#### Cluster is active
+
+![img-Cluster](Cluster_is_active.png)
+
+#### Nodes_in_running_state
+
+![img-Node](Node_are_running.png)
+
 #### Create kubeconfig and apply aws-iam-authenticator
 
 ![img-7](7-Createkubeconfig_applyawsauth.png)
