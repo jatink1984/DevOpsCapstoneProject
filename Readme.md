@@ -9,7 +9,7 @@ Technologies/Concepts used:
 3. Kubernetes - AWS EKS 
 4. Jenkis
 
-## &emsp; &emsp; &emsp; &emsp; &emsp; Project Setup
+## &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;Project Setup
 
 ## Create Infrastructure
 To deploy the infrastructure execute the create.sh script with following parameters &nbsp;
@@ -26,12 +26,9 @@ After the EKS cluster is up and running set context to link credentials to local
 ```kubectl apply -f aws_auth_cm.yaml```
 
 ## Blue/Green deployment
-Apply blue deployment<br />
-```kubectl apply -f blue-deployment.yml```<br />
-Apply green deployment<br />
-```kubectl apply -f green-deployment.yml```<br />
-Apply loadbalancer service pointing to blue deployment<br />
-```kubectl apply -f blue-green-loadbalancer.yml```<br />
-To make green service live, change selector in blue-green-loadbalancer service to app: green<br />
-Deploy the service again and green deployment should be live<br />
+1.Apply blue deployment ```kubectl apply -f blue-deployment.yml```<br />
+2.Apply green deployment ```kubectl apply -f green-deployment.yml```<br />
+3.Apply loadbalancer service pointing to blue deployment ```kubectl apply -f blue-green-loadbalancer.yml```<br />
+4.To make green service live, change selector in blue-green-loadbalancer.yml service to ```"app": "green"``` <br />
+5.Deploy the service again and green deployment should be live<br />
 ```kubectl apply -f blue-green-loadbalancer.yml```
