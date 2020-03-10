@@ -28,7 +28,7 @@ pipeline {
                     steps {
                         sh 'docker build -t sniizzer/blue-version -f blue-green/blue/Dockerfile blue-green/blue'
                         sh 'docker build -t sniizzer/green-version -f blue-green/green/Dockerfile blue-green/green'
-                        withDockerRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                             sh 'docker push sniizzer/blue-version'
                             sh 'docker push sniizzer/green-version'
                         }
