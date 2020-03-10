@@ -1,30 +1,38 @@
-# Images of result execution
+# Images of successful deployment completion
 
-#### Executing createcloudformation script
+#### Jenkins pipeline lint html files step
 
-![img-1](1-Executing_create_cloudformation_script.png)
+![img-2](2-Lint_html_files.png)
 
-#### Result on web console AWS Cloudformation
+####  Jenkins pipeline lint docker file step
 
-![img-2](2-Result_on_web_console_AWS_Cloudformation.png)
+![img-3](3-Lint_dockerfile.png)
 
-####  Outputs_variables
+#### Successful push to dockerhub
 
-![img-3](3-Outputs_variables.png)
+![img-4](4-Push_images_to_dockerhub.png)
 
-#### Parameters variables
+#### Create AWS EKS stack
 
-![img-4](4-Parameters_variables.png)
+![img-5](5-Create_stack.png)
 
-#### S3 bucket used for download artifacts
+#### Stackid
 
-![img-5](5-s3_bucket_used_for_download_app.png)
-
-#### Status healthy of target group
-
-![img-6](6-Status_healthy_of_target_group.png)
+![img-6](6-Stackid.png)
 
 #### App on Browser using LoadBalancerDNSName
 
-![img-7](7-App_on_Browser_using_LoadBalancerDNSName.png)
+![img-7](7-Createkubeconfig_applyawsauth.png)
 
+#### App on Browser using LoadBalancerDNSName
+
+![img-8](8-Create_deployments_and_service.png)
+#### App on Browser using LoadBalancerDNSName
+
+![img-9](9-Blue_is_live.png)
+#### App on Browser using LoadBalancerDNSName
+
+![img-10](10-Patch_servicetogreen.png)
+#### App on Browser using LoadBalancerDNSName
+
+![img-11](11-Green_is_live.png)

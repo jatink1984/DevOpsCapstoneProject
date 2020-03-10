@@ -1,5 +1,7 @@
 ### AWS EKS - Blue/Green deployment
 
+![img-1](images/1-Diagram_EKS_blue_green_deployment)
+
 ## Overview
 This project uses cloudformation to build the aws infrastructure. Then AWS EKS is used to create a Kubernetes cluster. Once the infrastruture ready, blue/green sample application is deployed to Kubernetes cluster. Application is made available to public using loadbalancer service. The project also demonstrtates the capability to switch blue/green deployment by updating the loadbalancer service.
 
