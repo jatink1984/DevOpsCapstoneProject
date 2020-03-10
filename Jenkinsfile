@@ -18,11 +18,6 @@ pipeline {
                 sh 'hadolint blue-green/blue/Dockerfile'
                 sh 'hadolint blue-green/green/Dockerfile'
             }
-            post {
-                always {
-                    archiveArtifacts 'hadolint_lint.txt'
-                }
-            }
         }
         stage('Build and Publish Docker Image'){
                     
