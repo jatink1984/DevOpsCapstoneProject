@@ -26,14 +26,14 @@ pipeline {
         stage('Build and Publish Docker Image'){
                     
                     steps {
-                        sh 'docker build -t sniizzer/blue-version -f blue-green/blue/Dockerfile blue-green/blue'
-                        sh 'docker build -t sniizzer/green-version -f blue-green/green/Dockerfile blue-green/green'
+                        sh 'docker build -t sniizzer/blue-v2 -f blue-green/blue/Dockerfile blue-green/blue'
+                        sh 'docker build -t sniizzer/green-v2 -f blue-green/green/Dockerfile blue-green/green'
                         withDockerRegistry(url: 'https://registry.hub.docker.com/sniizzer', credentialsId: 'dockerhub') {
                             sh 'docker push sniizzer/blue-v2'
                             sh 'docker push sniizzer/green-v2'
                         }
-                        sh 'docker rmi -f sniizzer/blue-version'
-                        sh 'docker rmi -f sniizzer/green-version'
+                        sh 'docker rmi -f sniizzer/blue-v2'
+                        sh 'docker rmi -f sniizzer/green-v2'
                     }
                 }
     }
