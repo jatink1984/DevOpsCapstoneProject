@@ -2,12 +2,27 @@
 pipeline {
     agent any
     stages {
-        stage('Lint HTML & Dockerfile'){
+        stage('Lint HTML'){
             steps {
                 sh 'tidy -q -e blue-green/blue/*.html'
                 sh 'tidy -q -e blue-green/green/*.html'
                 sh 'hadolint blue-green/blue/Dockerfile'
                 sh 'hadolint blue-green/green/Dockerfile'
+            }
+        }
+        stage ("lint dockerfile") {
+            agent {
+                docker {
+                    image 'hadolint/hadolint:latest-debian'
+                }
+            }
+            steps {
+                sh 'hadolint dockerfiles/* | tee -a hadolint_lint.txt'
+            }
+            post {
+                always {
+                    archiveArtifacts 'hadolint_lint.txt'
+                }
             }
         }
         stage('Build and Publish Docker Image'){
