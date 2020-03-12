@@ -1,5 +1,5 @@
 #! /bin/bash
-CURRENT=$(/usr/local/bin/kubectl get service bluegreenlb -o jsonpath='{.spec.selector.app}')
+CURRENT=$(ssh ec2-user@ec2-3-133-144-139.us-east-2.compute.amazonaws.com kubectl get service bluegreenlb -o jsonpath='{.spec.selector.app}')
 if [ $CURRENT == "blue" ]
 then
  echo "blue is live, create new green deployment."
