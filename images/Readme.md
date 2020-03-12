@@ -36,22 +36,24 @@
 
 ![img-Node](Node_are_running.png)
 
-#### Create kubeconfig and apply aws-iam-authenticator
-
-![img-7](7-Createkubeconfig_applyawsauth.png)
-
-#### Create blue, green deployments and loadbalancer service
-
-![img-8](8-Create_deployments_and_service.png)
-
 #### Open blue app in the browser
 
 ![img-9](9-Blue_is_live.png)
 
-#### Update loadbalancer service to make green service live
+#### Blue deployment is active and load balance points to blue deployment
 
-![img-10](10-Patch_servicetogreen.png)
+![img-10](10-Blue_deployed.png)
 
-#### Load balancer now points to the green app
+#### New code commit triggers the Jenkins pipeline. It creates a new green deployment, patches load balancer to point to green deployment once it becomes available and then deletes the blue deployment
 
-![img-11](11-Green_is_live.png)
+![img-11](11-Deploy_updated_app.png)
+
+#### Green is Live
+
+![img-12](12-Green_is_live.png)
+
+#### Green is Live
+
+![img-13](12-Green_is_live.png)
+
+

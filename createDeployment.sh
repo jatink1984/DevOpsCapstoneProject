@@ -28,5 +28,6 @@ then
  ssh ec2-user@ec2-3-133-144-139.us-east-2.compute.amazonaws.com kubectl delete deployment green
 else 
  echo "Deploying default blue service"
+  ssh ec2-user@ec2-3-133-144-139.us-east-2.compute.amazonaws.com kubectl apply -f blue-deployment.yml
   ssh ec2-user@ec2-3-133-144-139.us-east-2.compute.amazonaws.com kubectl apply -f blue-green-loadbalancer.yml
 fi 
