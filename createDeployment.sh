@@ -1,4 +1,6 @@
-#!/bin/bash
+#! /bin/bash
+PATH=$PATH:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+export PATH
 
 CURRENT=$(kubectl get service bluegreenlb -o jsonpath='{.spec.selector.app}')
 if [ $CURRENT == "blue" ]
