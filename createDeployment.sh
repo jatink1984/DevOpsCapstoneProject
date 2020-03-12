@@ -1,3 +1,5 @@
+#!/bin/bash
+
 CURRENT=$(kubectl get service bluegreenlb -o jsonpath='{.spec.selector.app}')
 if [ $CURRENT == "blue" ]
 then
