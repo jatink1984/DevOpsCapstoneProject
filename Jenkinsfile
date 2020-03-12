@@ -20,20 +20,18 @@ pipeline {
             }
         }
         stage('Build and Publish Docker Image'){
-                    
-                    steps {
-                        sh 'docker build -t sniizzer/blue-version -f blue-green/blue/Dockerfile blue-green/blue'
-                        sh 'docker build -t sniizzer/green-version -f blue-green/green/Dockerfile blue-green/green'
-                        withDockerRegistry(url: "", credentialsId: 'dockerhub') {
-                            sh 'docker push sniizzer/blue-version'
-                            sh 'docker push sniizzer/green-version'
-                        }
-                        sh 'docker rmi -f sniizzer/blue-version'
-                        sh 'docker rmi -f sniizzer/green-version'
+                steps {
+                    sh 'docker build -t sniizzer/blue-version -f blue-green/blue/Dockerfile blue-green/blue'
+                    sh 'docker build -t sniizzer/green-version -f blue-green/green/Dockerfile blue-green/green'
+                    withDockerRegistry(url: "", credentialsId: 'dockerhub') {
+                        sh 'docker push sniizzer/blue-version'
+                        sh 'docker push sniizzer/green-version'
                     }
+                    sh 'docker rmi -f sniizzer/blue-version'
+                    sh 'docker rmi -f sniizzer/green-version'
                 }
-        stage('Build and Publish Docker Image'){
-                
+            }
+        stage('Deploy to kubernetes'){
                 steps {
                     sshagent(['ec2-machine']){
                         sh "scp -o StrictHostKeyChecking=no ec2-user@ec2-3-133-144-139.us-east-2.compute.amazonaws.com"
