@@ -32,14 +32,12 @@ pipeline {
                 }
             }
         stage('Deploy to kubernetes'){
-                steps {
-                    script{
+                node {
                         sshagent(['ec2-machine']){
                             sh "scp -o StrictHostKeyChecking=no ec2-user@ec2-3-133-144-139.us-east-2.compute.amazonaws.com"
                             script{
                                 sh "ssh ec2-user@ec2-3-133-144-139.us-east-2.compute.amazonaws.com kubectl apply -f green-deployment.yml"
                             }
-                        }
                     }    
                 }
             }
