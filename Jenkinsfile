@@ -31,13 +31,14 @@ pipeline {
                     sh 'docker rmi -f sniizzer/green-version'
                 }
             }
-        stage('Deploy to kubernetes'){
+        stage('Deploy App to Kubernetes'){
                 steps {
                     sh "chmod +x createDeployment.sh"
+                    sh "chmod +x copyDeploymentFiles.sh"
                     sshagent(['ec2-machine']){
-                        sh "rm blue-deployment.yml blue-green-loadbalancer.yml createDeployment.sh green-deployment.yml"
-                        sh "scp -o StrictHostKeyChecking=no createDeployment.sh blue-green/blue-green-loadbalancer.yml blue-green/blue/blue-deployment.yml blue-green/green/green-deployment.yml ec2-user@ec2-3-133-144-139.us-east-2.compute.amazonaws.com:/home/ec2-user"
                         sh "ssh ec2-user@ec2-3-133-144-139.us-east-2.compute.amazonaws.com"
+                     // sh "scp -o StrictHostKeyChecking=no createDeployment.sh blue-green/blue-green-loadbalancer.yml blue-green/blue/blue-deployment.yml blue-green/green/green-deployment.yml ec2-user@ec2-3-133-144-139.us-east-2.compute.amazonaws.com:/home/ec2-user"
+                        sh "./copyDeploymentFiles.sh"
                         sh "./createDeployment.sh"
                     }    
                 }
