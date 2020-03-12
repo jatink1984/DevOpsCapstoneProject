@@ -2,12 +2,12 @@
 pipeline {
     agent any
     stages {
-        // stage('Lint HTML'){
-        //     steps {
-        //         sh 'tidy -q -e blue-green/blue/*.html'
-        //         sh 'tidy -q -e blue-green/green/*.html'
-        //     }
-        // }
+        stage('Lint HTML'){
+            steps {
+                sh 'tidy -q -e blue-green/blue/*.html'
+                sh 'tidy -q -e blue-green/green/*.html'
+            }
+        }
         stage ("lint dockerfile") {
             agent {
                 docker {
