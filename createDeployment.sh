@@ -1,7 +1,5 @@
 #! /bin/bash
-PATH=$PATH:/usr/local/bin/kubectl
-export PATH
-CURRENT=$(kubectl get service bluegreenlb -o jsonpath='{.spec.selector.app}')
+CURRENT=$(/usr/local/bin/kubectl get service bluegreenlb -o jsonpath='{.spec.selector.app}')
 if [ $CURRENT == "blue" ]
 then
  echo "blue is live, create new green deployment."
