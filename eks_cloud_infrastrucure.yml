@@ -1,5 +1,5 @@
 Description: >
-    EKS VPC - This template will create a vpc with 2 AZs and 2 public and private subnets. It will also create 2 nodes in Public
+    EKS VPC - This template will create a vpc with 2 AZs and 2 public and private subnets. It will also create 2 nodes in Private
     subnets to run kubernetes cluster.
 
 Parameters:
